@@ -8,15 +8,11 @@ export default function App() {
 	const [term, setTerm] = useState('cat');
 	const [images, setImages] = useState([]);
 
-	const onSearchSubmit = (childData) => {
-		setTerm(childData);
-	};
 	useEffect(() => {
 		const search = async () => {
 			const response = await unsplashAPI.get('/search/photos', {
 				params: { query: term, orientation: 'landscape', per_page: '12' },
 			});
-			console.log(response.data.results);
 			setImages(response.data.results);
 		};
 		search();
@@ -25,7 +21,7 @@ export default function App() {
 	return (
 		<div>
 			<div className='search-container'>
-				<SearchItems passQuery={onSearchSubmit} />
+				<SearchItems passQuery={(childData) => setTerm(childData)} />
 			</div>
 			<div className='image-container'>
 				<ImageList images={images} />
