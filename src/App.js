@@ -16,7 +16,7 @@ export default function App() {
 			const response = await unsplashAPI.get('/search/photos', {
 				params: { query: term, orientation: 'landscape', per_page: '12' },
 			});
-			console.log(response.data.r esults);
+			console.log(response.data.results);
 			setImages(response.data.results);
 		};
 		search();
