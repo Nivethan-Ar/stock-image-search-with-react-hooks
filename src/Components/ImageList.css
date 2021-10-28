@@ -1,0 +1,22 @@
+.grid {
+	display: grid;
+	gap: 1.8rem 0.4rem;
+	grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	transition: all 500ms;
+}
+.card img {
+	border-radius: 0.2rem;
+	filter: drop-shadow(2px 2px 5px rgba(102, 102, 102, 0.473));
+}
+.card:hover {
+	filter: brightness(0.6);
+}
